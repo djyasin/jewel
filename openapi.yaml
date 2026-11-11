@@ -120,34 +120,6 @@ paths:
           description: ''
       x-ai-description: List audit trail entries for tracking system changes and user
         actions
-  /api/gateway/v1/activitystream/{id}/:
-    get:
-      operationId: activitystream_retrieve
-      description: API endpoint that allows for read-only access to activity stream
-        entries.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this entry.
-        required: true
-      tags:
-      - activitystream
-      security:
-      - BearerAuthentication: []
-      - OAuth2_Authentication: []
-      - SessionAuthentication: []
-      - Basic_Authentication: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Entry'
-          description: ''
-      x-ai-description: Retrieve a audit trail entry for tracking system changes and
-        user actions
   /api/gateway/v1/app_urls/:
     get:
       operationId: app_urls_list
