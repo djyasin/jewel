@@ -1,0 +1,27 @@
+---
+# Caller workflow for changelog fragment enforcement.
+# Consumes reusable workflow from ansible/actions (PR #167).
+# Jira: AAP-86435
+name: "API: Changelog Fragment Enforcement"
+
+on:
+  pull_request:
+    branches:
+      - devel
+      - stable-*
+      - AAP-86435-*
+    paths:
+      - 'schema.json'
+      - 'changelogs/fragments/**'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  enforce:
+    # djyasin/actions for test; production: ansible/actions@<tag>
+    uses: djyasin/actions/.github/workflows/openapi-changelog-fragment.yml@feat/changelog-fragment-enforcement # PR #167
+    with:
+      spec-paths: "schema.json"
+      fragment-dir: "changelogs/fragments"
