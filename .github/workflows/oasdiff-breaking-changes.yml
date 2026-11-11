@@ -20,4 +20,4 @@ jobs:
     # djyasin/actions for test; production: ansible/actions@<tag>
     uses: djyasin/actions/.github/workflows/oasdiff-breaking-changes.yml@feat/oasdiff-breaking-change-detection # PR #161
     with:
-      spec-path: schema.json
+      spec-path: openapi.yaml

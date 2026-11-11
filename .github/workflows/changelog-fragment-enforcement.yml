@@ -11,7 +11,7 @@ on:
       - stable-*
       - AAP-86435-*
     paths:
-      - 'schema.json'
+      - 'openapi.yaml'
       - 'changelogs/fragments/**'
 
 permissions:
@@ -23,5 +23,5 @@ jobs:
     # djyasin/actions for test; production: ansible/actions@<tag>
     uses: djyasin/actions/.github/workflows/openapi-changelog-fragment.yml@feat/changelog-fragment-enforcement # PR #167
     with:
-      spec-paths: "schema.json"
+      spec-paths: "openapi.yaml"
       fragment-dir: "changelogs/fragments"
